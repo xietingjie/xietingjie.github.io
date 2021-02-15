@@ -33,6 +33,10 @@
             var board2 = document.getElementById("board2");
             var board3 = document.getElementById("board3");
             var board4 = document.getElementById("board4");
+            // 声音
+            var shengyin = new Audio();
+            shengyin.src = "声音2.mp3";
+            shengyinFlag = 0; // 用来表示小球在第几块board上
             // 键盘事件函数
             var ball = document.getElementById("ball");
             document.onkeydown = f;
@@ -114,25 +118,45 @@
                 var t6 = Math.abs(ball.offsetTop - board2.offsetTop);
                 var t7 = Math.abs(ball.offsetTop - board3.offsetTop);
                 var t8 = Math.abs(ball.offsetTop - board4.offsetTop);
-                if(t5<=ball.offsetHeight && ball.offsetLeft>=board1.offsetLeft-ball.offsetWidth && ball.offsetLeft<=board1.offsetLeft+board1.offsetWidth)
+                if(t5<=ball.offsetHeight && t5>0 && ball.offsetLeft>=board1.offsetLeft-ball.offsetWidth && ball.offsetLeft<=board1.offsetLeft+board1.offsetWidth)
                 {
                     ball.style.top = board1.offsetTop - ball.offsetHeight + "px";
                     ballSpeed = startSpeed;
+                    if(shengyinFlag != 1)
+                    {
+                        shengyin.play();
+                        shengyinFlag = 1;
+                    }
                 }
-                else if(t6<=ball.offsetHeight && ball.offsetLeft>=board2.offsetLeft-ball.offsetWidth && ball.offsetLeft<=board2.offsetLeft+board2.offsetWidth)
+                else if(t6<=ball.offsetHeight && t6>0 && ball.offsetLeft>=board2.offsetLeft-ball.offsetWidth && ball.offsetLeft<=board2.offsetLeft+board2.offsetWidth)
                 {
                     ball.style.top = board2.offsetTop - ball.offsetHeight + "px";
                     ballSpeed = startSpeed;
+                    if(shengyinFlag != 2)
+                    {
+                        shengyin.play();
+                        shengyinFlag = 2;
+                    }
                 }
-                else if(t7<=ball.offsetHeight && ball.offsetLeft>=board3.offsetLeft-ball.offsetWidth && ball.offsetLeft<=board3.offsetLeft+board3.offsetWidth)
+                else if(t7<=ball.offsetHeight && t7>0 && ball.offsetLeft>=board3.offsetLeft-ball.offsetWidth && ball.offsetLeft<=board3.offsetLeft+board3.offsetWidth)
                 {
                     ball.style.top = board3.offsetTop - ball.offsetHeight + "px";
                     ballSpeed = startSpeed;
+                    if(shengyinFlag != 3)
+                    {
+                        shengyin.play();
+                        shengyinFlag = 3;
+                    }
                 }
-                else if(t8<=ball.offsetHeight && ball.offsetLeft>=board4.offsetLeft-ball.offsetWidth && ball.offsetLeft<=board4.offsetLeft+board4.offsetWidth)
+                else if(t8<=ball.offsetHeight && t8>0 && ball.offsetLeft>=board4.offsetLeft-ball.offsetWidth && ball.offsetLeft<=board4.offsetLeft+board4.offsetWidth)
                 {
                     ball.style.top = board4.offsetTop - ball.offsetHeight + "px";
                     ballSpeed = startSpeed;
+                    if(shengyinFlag != 4)
+                    {
+                        shengyin.play();
+                        shengyinFlag = 4;
+                    }
                 }
                 else
                 {
