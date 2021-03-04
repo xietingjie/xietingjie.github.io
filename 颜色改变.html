@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            div {
+                position: absolute;
+                left: 35%;
+                top: 40%;
+            }
+            input {
+                width: 400px;
+                height: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <input id="range1" type="range" min="0" max="255" oninput="changeColor();"></input></br>
+            <input id="range2" type="range" min="0" max="255" oninput="changeColor()"></input></br>
+            <input id="range3" type="range" min="0" max="255" oninput="changeColor()"></input></br>
+        </div>
+    </body>
+
+    <script>
+        function changeColor(){
+            var value1 = document.getElementById("range1").value;
+            var value2 = document.getElementById("range2").value;
+            var value3 = document.getElementById("range3").value;
+            var color = "rgb(" + value1 + "," + value2 + "," + value3 + ")";
+            document.body.style.backgroundColor = color;  
+        }
+
+        window.onload = changeColor;
+        
+    </script>
+</html>
